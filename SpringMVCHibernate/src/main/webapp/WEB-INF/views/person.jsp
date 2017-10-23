@@ -17,9 +17,9 @@
 	Add a Person
 </h1>
 
-<c:url var="addAction" value="/person/add" ></c:url>
+<c:url var="addAction" value="/person/add"></c:url>
 
-<form:form action="${addAction}" commandName="person">
+<form:form action="${addAction}"  commandName="person">
 <table>
 	<c:if test="${!empty person.name}">
 	<tr>
@@ -44,6 +44,21 @@
 			<form:input path="name" />
 		</td> 
 	</tr>
+	
+	<tr>
+	<c:url var="addAction" value="/adress/add"></c:url>
+		<td>
+			<form:label path="street">
+				<spring:message text="Street"/>
+			</form:label>
+		</td>
+		<td>
+			<form:input path="street" />
+		</td> 
+	</tr>
+	
+	
+	
 	<tr>
 		<td>
 			<form:label path="country">
@@ -76,6 +91,7 @@
 		<th width="80">Person ID</th>
 		<th width="120">Person Name</th>
 		<th width="120">Person Country</th>
+		<th width="60">Adress</th>
 		<th width="60">Edit</th>
 		<th width="60">Delete</th>
 	</tr>
@@ -84,11 +100,17 @@
 			<td>${person.id}</td>
 			<td>${person.name}</td>
 			<td>${person.country}</td>
+			<td><a href="<c:url value='/adress/${person.id}' />" >Adress</a></td>
 			<td><a href="<c:url value='/edit/${person.id}' />" >Edit</a></td>
 			<td><a href="<c:url value='/remove/${person.id}' />" >Delete</a></td>
 		</tr>
 	</c:forEach>
+	
+	
 	</table>
+	<br>
+	<br>
+	<td><a href="<c:url value='/adresses' />" >Adresses</a></td>
 </c:if>
 </body>
 </html>

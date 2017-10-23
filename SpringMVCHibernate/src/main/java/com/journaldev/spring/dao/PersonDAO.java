@@ -2,7 +2,7 @@ package com.journaldev.spring.dao;
 
 import java.util.List;
 
-import com.journaldev.spring.model.Person;
+import com.journaldev.spring.model.*;
 
 public interface PersonDAO {
 
